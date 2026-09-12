@@ -1,0 +1,115 @@
+{
+  "files": 16,
+  "attributes": {
+    "SWEAP_Status": [
+      {
+        "FIELDNAM": "PSP_FLD_L2_TDS_WF_SWEAP_Status",
+        "FORMAT": "z8",
+        "LABLAXIS": "SWEAP Status",
+        "VAR_TYPE": "support_data",
+        "FILLVAL": "-9223372036854775808",
+        "DEPEND_0": "epoch",
+        "DISPLAY_TYPE": "time_series",
+        "VALIDMIN": "0",
+        "VALIDMAX": "4294967295",
+        "SCALEMIN": "0",
+        "SCALEMAX": "4294967295",
+        "UNITS": "counts",
+        "CATDESC": "SWEAP Status word (coded)"
+      }
+    ],
+    "SWEAP_Electron_Mask": [
+      {
+        "FIELDNAM": "PSP_FLD_L2_TDS_WF_SWEAP_Electron_Mask",
+        "FORMAT": "z8",
+        "LABLAXIS": "SWEAP e Mask",
+        "VAR_TYPE": "support_data",
+        "FILLVAL": "-9223372036854775808",
+        "DEPEND_0": "epoch",
+        "DISPLAY_TYPE": "time_series",
+        "VALIDMIN": "0",
+        "VALIDMAX": "4294967295",
+        "SCALEMIN": "0",
+        "SCALEMAX": "4294967295",
+        "UNITS": "counts",
+        "CATDESC": "SWEAP SWEAP electron anode selection mask (coded)"
+      }
+    ],
+    "SWEAP_Ion_Mask": [
+      {
+        "FIELDNAM": "PSP_FLD_L2_TDS_WF_SWEAP_Ion_Mask",
+        "FORMAT": "z8",
+        "LABLAXIS": "SWEAP ion Mask",
+        "VAR_TYPE": "support_data",
+        "FILLVAL": "-9223372036854775808",
+        "DEPEND_0": "epoch",
+        "DISPLAY_TYPE": "time_series",
+        "VALIDMIN": "0",
+        "VALIDMAX": "4294967295",
+        "SCALEMIN": "0",
+        "SCALEMAX": "4294967295",
+        "UNITS": "counts",
+        "CATDESC": "SWEAP SWEAP ion anode selection mask (coded)"
+      }
+    ],
+    "SWEAP_Start": [
+      {
+        "FIELDNAM": "PSP_FLD_L2_TDS_WF_SWEAP_Start",
+        "FORMAT": "F10.3",
+        "LABLAXIS": "SWEAP Start",
+        "VAR_TYPE": "support_data",
+        "FILLVAL": -1e+31,
+        "DEPEND_0": "epoch",
+        "DISPLAY_TYPE": "time_series",
+        "VALIDMIN": 0.0,
+        "VALIDMAX": 250.0,
+        "SCALEMIN": 0.0,
+        "SCALEMAX": 250.0,
+        "UNITS": "s",
+        "CATDESC": "Time since the last SWEAP sweep start (seconds)"
+      }
+    ]
+  },
+  "values": {
+    "SWEAP_Status": [
+      {
+        "decimal": 2172732601,
+        "hex": "0x818144B9",
+        "n": 98
+      },
+      {
+        "decimal": 2172732606,
+        "hex": "0x818144BE",
+        "n": 3464
+      },
+      {
+        "decimal": 2172732607,
+        "hex": "0x818144BF",
+        "n": 549
+      },
+      {
+        "decimal": 2172765375,
+        "hex": "0x8181C4BF",
+        "n": 5
+      }
+    ],
+    "SWEAP_Electron_Mask": [
+      {
+        "decimal": 4294967295,
+        "hex": "0xFFFFFFFF",
+        "n": 4116
+      }
+    ],
+    "SWEAP_Ion_Mask": [
+      {
+        "decimal": 131082,
+        "hex": "0x0002000A",
+        "n": 4116
+      }
+    ]
+  },
+  "sweep_start_range_s": [
+    5.7447916333330795e-05,
+    0.8738059997558594
+  ]
+}

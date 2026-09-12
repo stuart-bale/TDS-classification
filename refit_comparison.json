@@ -1,0 +1,19 @@
+{
+  "previous_records": 2999,
+  "current_records": 4116,
+  "old_k": 2,
+  "new_k": 2,
+  "ARI_on_same_preexisting_fit_records": 0.16118369282647946,
+  "n_compared": 2880,
+  "old_groups_by_new_groups": [
+    [
+      686,
+      173
+    ],
+    [
+      2008,
+      13
+    ]
+  ],
+  "old_event_ids_preserved": true
+}
