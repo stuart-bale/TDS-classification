@@ -1,0 +1,39 @@
+{
+  "total_events": 10657,
+  "measured_channels": 53250,
+  "fitted_events": 7416,
+  "fitted_by_encounter": {
+    "E23": 3383,
+    "E24": 4033
+  },
+  "features": [
+    "V2__log_peak_hz",
+    "V2__log_fractional_bandwidth",
+    "V2__log_peak_power_fraction",
+    "V2__log_peak_to_background",
+    "V1V2__log_peak_hz",
+    "V1V2__log_fractional_bandwidth",
+    "V1V2__log_peak_power_fraction",
+    "V1V2__log_peak_to_background",
+    "V3V4__log_peak_hz",
+    "V3V4__log_fractional_bandwidth",
+    "V3V4__log_peak_power_fraction",
+    "V3V4__log_peak_to_background"
+  ],
+  "explained_variance": [
+    0.45443785815476195,
+    0.34792844812011775,
+    0.07114908240736989
+  ],
+  "group_sizes": [
+    3686,
+    2848,
+    882
+  ],
+  "silhouette_sample_n": 1500,
+  "silhouette": 0.3837582452086458,
+  "method": "Pooled spectral-only PCA. Three common electric channels; all three must have valid nonharmonic FWHM and contrast >=3; saturation excluded. Complete cases only: no validity flags or imputation in PCA. Three Ward groups in all 12 robust-scaled features; k=3 is a browsing choice, not a selected physical class count.",
+  "harmonics": "150,300,450,600,750 kHz; mask +/-2 Welch bins, grow to 3x local background up to +/-5 bins before peak reselection",
+  "resolution": "468.75 Hz Welch bin spacing. Unresolved widths retained as measured window-limited widths, explicitly flagged in channel catalog. No transfer-function correction.",
+  "not_in_fit": "V4/V5 and SCM are measured and retained in the channel catalog but excluded from the common-channel pooled PCA to avoid conflating different configurations."
+}
