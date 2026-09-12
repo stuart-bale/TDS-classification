@@ -1,0 +1,410 @@
+{
+  "reference": 1786,
+  "method": "Euclidean distance in all 27 robust-scaled, family-weighted waveform morphology descriptors used in the joint PCA, not distance in the first two PCs. No counts, frequency, amplitude, or physical labels enter the ranking. Saturated and invalid events excluded. This is a morphology shortlist, not a soliton classification.",
+  "nearest": [
+    {
+      "event": 5134,
+      "encounter": "E24",
+      "utc": "2025-06-10T22:02:00.372298000",
+      "distance": 0.6575582124352799,
+      "peak_hz": 158906.25,
+      "df_f": 0.00799930023121773,
+      "spectral_valid": true,
+      "url": "index.html#event=5134"
+    },
+    {
+      "event": 6221,
+      "encounter": "E24",
+      "utc": "2025-06-17T14:48:38.842804000",
+      "distance": 0.7111150068091596,
+      "peak_hz": 219843.75,
+      "df_f": 0.006426747632033821,
+      "spectral_valid": true,
+      "url": "index.html#event=6221"
+    },
+    {
+      "event": 5106,
+      "encounter": "E24",
+      "utc": "2025-06-10T21:46:26.006175000",
+      "distance": 0.7196307389566072,
+      "peak_hz": 153750.0,
+      "df_f": null,
+      "spectral_valid": false,
+      "url": "index.html#event=5106"
+    },
+    {
+      "event": 5113,
+      "encounter": "E24",
+      "utc": "2025-06-10T21:47:07.805789000",
+      "distance": 0.7504344441247564,
+      "peak_hz": 152812.5,
+      "df_f": null,
+      "spectral_valid": false,
+      "url": "index.html#event=5113"
+    },
+    {
+      "event": 6220,
+      "encounter": "E24",
+      "utc": "2025-06-17T14:43:30.501581000",
+      "distance": 0.7754745219788953,
+      "peak_hz": 220781.25,
+      "df_f": 0.009836228581849071,
+      "spectral_valid": true,
+      "url": "index.html#event=6220"
+    },
+    {
+      "event": 5036,
+      "encounter": "E24",
+      "utc": "2025-06-09T11:34:56.199343000",
+      "distance": 0.7790416635967428,
+      "peak_hz": 75468.75,
+      "df_f": 0.0162765484611068,
+      "spectral_valid": true,
+      "url": "index.html#event=5036"
+    },
+    {
+      "event": 10397,
+      "encounter": "E24",
+      "utc": "2025-06-26T15:00:46.049052000",
+      "distance": 0.8462675075934565,
+      "peak_hz": 62812.5,
+      "df_f": 0.034443640035771377,
+      "spectral_valid": true,
+      "url": "index.html#event=10397"
+    },
+    {
+      "event": 1779,
+      "encounter": "E23",
+      "utc": "2025-03-19T02:38:08.051519000",
+      "distance": 0.8573951775867709,
+      "peak_hz": 293906.25,
+      "df_f": 0.004881644640850068,
+      "spectral_valid": true,
+      "url": "index.html#event=1779"
+    },
+    {
+      "event": 5089,
+      "encounter": "E24",
+      "utc": "2025-06-10T16:24:55.833484000",
+      "distance": 0.8586832444365191,
+      "peak_hz": 115312.5,
+      "df_f": 0.015337787897017252,
+      "spectral_valid": true,
+      "url": "index.html#event=5089"
+    },
+    {
+      "event": 4881,
+      "encounter": "E24",
+      "utc": "2025-06-07T07:29:47.483768000",
+      "distance": 0.8724486337172462,
+      "peak_hz": 47343.75,
+      "df_f": 0.0444906965104548,
+      "spectral_valid": true,
+      "url": "index.html#event=4881"
+    },
+    {
+      "event": 4120,
+      "encounter": "E23",
+      "utc": "2025-03-05T08:02:43.591775000",
+      "distance": 0.8848493852058639,
+      "peak_hz": 51562.5,
+      "df_f": 0.026300222678106618,
+      "spectral_valid": true,
+      "url": "index.html#event=4120"
+    },
+    {
+      "event": 6665,
+      "encounter": "E24",
+      "utc": "2025-06-18T12:05:10.455792000",
+      "distance": 0.8926928425422263,
+      "peak_hz": 200625.0,
+      "df_f": 0.006770013459744454,
+      "spectral_valid": true,
+      "url": "index.html#event=6665"
+    },
+    {
+      "event": 1811,
+      "encounter": "E23",
+      "utc": "2025-03-19T03:03:22.195454000",
+      "distance": 0.8979231920103772,
+      "peak_hz": 287812.5,
+      "df_f": 0.0075085383091581,
+      "spectral_valid": true,
+      "url": "index.html#event=1811"
+    },
+    {
+      "event": 5028,
+      "encounter": "E24",
+      "utc": "2025-06-09T11:31:03.523324000",
+      "distance": 0.9025093023685284,
+      "peak_hz": 66562.5,
+      "df_f": 0.027329481323123933,
+      "spectral_valid": true,
+      "url": "index.html#event=5028"
+    },
+    {
+      "event": 5099,
+      "encounter": "E24",
+      "utc": "2025-06-10T20:34:05.738985000",
+      "distance": 0.9140587782331948,
+      "peak_hz": 191250.0,
+      "df_f": 0.0053138812542380155,
+      "spectral_valid": true,
+      "url": "index.html#event=5099"
+    },
+    {
+      "event": 5035,
+      "encounter": "E24",
+      "utc": "2025-06-09T11:34:54.482225000",
+      "distance": 0.9156547830418815,
+      "peak_hz": 75937.5,
+      "df_f": 0.0176549129872305,
+      "spectral_valid": true,
+      "url": "index.html#event=5035"
+    },
+    {
+      "event": 5124,
+      "encounter": "E24",
+      "utc": "2025-06-10T21:54:44.410128000",
+      "distance": 0.925403360767139,
+      "peak_hz": 163125.0,
+      "df_f": 0.010589930722964,
+      "spectral_valid": true,
+      "url": "index.html#event=5124"
+    },
+    {
+      "event": 3758,
+      "encounter": "E23",
+      "utc": "2025-03-27T11:04:49.633469000",
+      "distance": 0.9590954695808297,
+      "peak_hz": 178593.75,
+      "df_f": 0.005809576459858348,
+      "spectral_valid": true,
+      "url": "index.html#event=3758"
+    },
+    {
+      "event": 5109,
+      "encounter": "E24",
+      "utc": "2025-06-10T21:46:30.597393000",
+      "distance": 0.9632909230915412,
+      "peak_hz": 152812.5,
+      "df_f": null,
+      "spectral_valid": false,
+      "url": "index.html#event=5109"
+    },
+    {
+      "event": 1790,
+      "encounter": "E23",
+      "utc": "2025-03-19T03:02:57.627654000",
+      "distance": 0.9677712704564331,
+      "peak_hz": 307500.0,
+      "df_f": 0.003900049830052426,
+      "spectral_valid": true,
+      "url": "index.html#event=1790"
+    }
+  ],
+  "nearest_E23": [
+    {
+      "event": 1779,
+      "encounter": "E23",
+      "utc": "2025-03-19T02:38:08.051519000",
+      "distance": 0.8573951775867709,
+      "peak_hz": 293906.25,
+      "df_f": 0.004881644640850068,
+      "spectral_valid": true,
+      "url": "index.html#event=1779"
+    },
+    {
+      "event": 4120,
+      "encounter": "E23",
+      "utc": "2025-03-05T08:02:43.591775000",
+      "distance": 0.8848493852058639,
+      "peak_hz": 51562.5,
+      "df_f": 0.026300222678106618,
+      "spectral_valid": true,
+      "url": "index.html#event=4120"
+    },
+    {
+      "event": 1811,
+      "encounter": "E23",
+      "utc": "2025-03-19T03:03:22.195454000",
+      "distance": 0.8979231920103772,
+      "peak_hz": 287812.5,
+      "df_f": 0.0075085383091581,
+      "spectral_valid": true,
+      "url": "index.html#event=1811"
+    },
+    {
+      "event": 3758,
+      "encounter": "E23",
+      "utc": "2025-03-27T11:04:49.633469000",
+      "distance": 0.9590954695808297,
+      "peak_hz": 178593.75,
+      "df_f": 0.005809576459858348,
+      "spectral_valid": true,
+      "url": "index.html#event=3758"
+    },
+    {
+      "event": 1790,
+      "encounter": "E23",
+      "utc": "2025-03-19T03:02:57.627654000",
+      "distance": 0.9677712704564331,
+      "peak_hz": 307500.0,
+      "df_f": 0.003900049830052426,
+      "spectral_valid": true,
+      "url": "index.html#event=1790"
+    },
+    {
+      "event": 4563,
+      "encounter": "E23",
+      "utc": "2025-03-14T05:15:21.162993000",
+      "distance": 0.9811155093743023,
+      "peak_hz": 64687.5,
+      "df_f": 0.01522091056070637,
+      "spectral_valid": true,
+      "url": "index.html#event=4563"
+    },
+    {
+      "event": 1778,
+      "encounter": "E23",
+      "utc": "2025-03-19T02:38:07.044072000",
+      "distance": 0.9949994464309213,
+      "peak_hz": 293906.25,
+      "df_f": 0.010082732462203491,
+      "spectral_valid": true,
+      "url": "index.html#event=1778"
+    },
+    {
+      "event": 3278,
+      "encounter": "E23",
+      "utc": "2025-03-25T13:45:11.298040000",
+      "distance": 1.0507117019130854,
+      "peak_hz": 9843.75,
+      "df_f": 0.12378536675378018,
+      "spectral_valid": true,
+      "url": "index.html#event=3278"
+    },
+    {
+      "event": 4441,
+      "encounter": "E23",
+      "utc": "2025-03-12T08:28:56.596596000",
+      "distance": 1.0576098183273803,
+      "peak_hz": 44531.25,
+      "df_f": 0.02418772932902812,
+      "spectral_valid": true,
+      "url": "index.html#event=4441"
+    },
+    {
+      "event": 2204,
+      "encounter": "E23",
+      "utc": "2025-03-20T04:31:10.586631000",
+      "distance": 1.0576278849993512,
+      "peak_hz": 19687.5,
+      "df_f": 0.04230089144782378,
+      "spectral_valid": true,
+      "url": "index.html#event=2204"
+    }
+  ],
+  "nearest_E24": [
+    {
+      "event": 5134,
+      "encounter": "E24",
+      "utc": "2025-06-10T22:02:00.372298000",
+      "distance": 0.6575582124352799,
+      "peak_hz": 158906.25,
+      "df_f": 0.00799930023121773,
+      "spectral_valid": true,
+      "url": "index.html#event=5134"
+    },
+    {
+      "event": 6221,
+      "encounter": "E24",
+      "utc": "2025-06-17T14:48:38.842804000",
+      "distance": 0.7111150068091596,
+      "peak_hz": 219843.75,
+      "df_f": 0.006426747632033821,
+      "spectral_valid": true,
+      "url": "index.html#event=6221"
+    },
+    {
+      "event": 5106,
+      "encounter": "E24",
+      "utc": "2025-06-10T21:46:26.006175000",
+      "distance": 0.7196307389566072,
+      "peak_hz": 153750.0,
+      "df_f": null,
+      "spectral_valid": false,
+      "url": "index.html#event=5106"
+    },
+    {
+      "event": 5113,
+      "encounter": "E24",
+      "utc": "2025-06-10T21:47:07.805789000",
+      "distance": 0.7504344441247564,
+      "peak_hz": 152812.5,
+      "df_f": null,
+      "spectral_valid": false,
+      "url": "index.html#event=5113"
+    },
+    {
+      "event": 6220,
+      "encounter": "E24",
+      "utc": "2025-06-17T14:43:30.501581000",
+      "distance": 0.7754745219788953,
+      "peak_hz": 220781.25,
+      "df_f": 0.009836228581849071,
+      "spectral_valid": true,
+      "url": "index.html#event=6220"
+    },
+    {
+      "event": 5036,
+      "encounter": "E24",
+      "utc": "2025-06-09T11:34:56.199343000",
+      "distance": 0.7790416635967428,
+      "peak_hz": 75468.75,
+      "df_f": 0.0162765484611068,
+      "spectral_valid": true,
+      "url": "index.html#event=5036"
+    },
+    {
+      "event": 10397,
+      "encounter": "E24",
+      "utc": "2025-06-26T15:00:46.049052000",
+      "distance": 0.8462675075934565,
+      "peak_hz": 62812.5,
+      "df_f": 0.034443640035771377,
+      "spectral_valid": true,
+      "url": "index.html#event=10397"
+    },
+    {
+      "event": 5089,
+      "encounter": "E24",
+      "utc": "2025-06-10T16:24:55.833484000",
+      "distance": 0.8586832444365191,
+      "peak_hz": 115312.5,
+      "df_f": 0.015337787897017252,
+      "spectral_valid": true,
+      "url": "index.html#event=5089"
+    },
+    {
+      "event": 4881,
+      "encounter": "E24",
+      "utc": "2025-06-07T07:29:47.483768000",
+      "distance": 0.8724486337172462,
+      "peak_hz": 47343.75,
+      "df_f": 0.0444906965104548,
+      "spectral_valid": true,
+      "url": "index.html#event=4881"
+    },
+    {
+      "event": 6665,
+      "encounter": "E24",
+      "utc": "2025-06-18T12:05:10.455792000",
+      "distance": 0.8926928425422263,
+      "peak_hz": 200625.0,
+      "df_f": 0.006770013459744454,
+      "spectral_valid": true,
+      "url": "index.html#event=6665"
+    }
+  ]
+}
