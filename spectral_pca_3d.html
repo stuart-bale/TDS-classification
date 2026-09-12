@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>TDS spectral PCA 3D</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>body{font:15px system-ui;color:#17313d;max-width:1200px;margin:24px auto;padding:0 18px;background:#f5f8fa}a{color:#006b8a}#plot{height:700px;background:#fff;border:1px solid #ccd7dd}.note{color:#526977}</style>
+<a href="atlas.html">← Waveform atlas</a> · <a href="bandwidth.html">Spectral bandwidth</a>
+<h1>Rotatable spectral PCA</h1><p>Three-dimensional view of the harmonic-cleaned spectral PCA. Drag to rotate, scroll to zoom, and click a point to open its waveform entry.</p><div id="plot"></div><p id="info" class="note">Loading…</p>
+<script>
+fetch('spectral_augmented_records.json').then(r=>r.json()).then(rows=>{
+ const use=rows.filter(r=>r.spectral_pca_usable), colors=['#007c91','#d86b25','#7d4db0'];
+ const traces=[0,1,2].map(g=>{let a=use.filter(r=>r.spectral_pca_group===g);return {x:a.map(r=>r.spectral_pca_pc1),y:a.map(r=>r.spectral_pca_pc2),z:a.map(r=>r.spectral_pca_pc3||0),mode:'markers',type:'scatter3d',name:'Group '+g,customdata:a.map(r=>[r.event,r.utc,r.pc1]),marker:{size:3,color:colors[g],opacity:.7},hovertemplate:'Event %{customdata[0]}<br>%{customdata[1]}<br>spectral PC1 %{x:.3f}<br>PC2 %{y:.3f}<br>PC3 %{z:.3f}<extra>Group '+g+'</extra>'}});
+ const dust=use.filter(r=>r.pc1>3.1&&r.group>=0);traces.push({x:dust.map(r=>r.spectral_pca_pc1),y:dust.map(r=>r.spectral_pca_pc2),z:dust.map(r=>r.spectral_pca_pc3||0),mode:'markers',type:'scatter3d',name:'Dust candidates',customdata:dust.map(r=>[r.event]),marker:{size:5,color:'#d86b25',symbol:'diamond',line:{color:'#111',width:1}},hovertemplate:'Dust candidate · Event %{customdata[0]}<extra></extra>'});
+ const e=use.find(r=>r.event===1786);if(e)traces.push({x:[e.spectral_pca_pc1],y:[e.spectral_pca_pc2],z:[e.spectral_pca_pc3||0],mode:'markers+text',type:'scatter3d',name:'Event 1786',text:['1786'],textposition:'top center',marker:{size:8,color:'#ad176e',symbol:'diamond'},hovertemplate:'Event 1786<extra></extra>'});
+ Plotly.newPlot('plot',traces,{paper_bgcolor:'#f5f8fa',margin:{l:0,r:0,t:20,b:0},scene:{xaxis:{title:'Spectral PC1'},yaxis:{title:'Spectral PC2'},zaxis:{title:'Spectral PC3'},camera:{eye:{x:1.5,y:1.5,z:1.2}}},legend:{orientation:'h'}},{responsive:true});
+ document.getElementById('info').textContent=`${use.length.toLocaleString()} usable events shown. The first two PCs explain 44.9% and 22.7%; PC3 explains 8.6%. Instrumental harmonic-dominated measurements were excluded before this fit.`;
+ document.getElementById('plot').on('plotly_click',ev=>{let p=ev.points[0];let id=p.customdata&&p.customdata[0];if(id!=null)document.getElementById('info').innerHTML=`Selected event <b>${id}</b> · <a href="atlas.html#event=${id}">open waveform</a>`});
+}).catch(e=>document.getElementById('info').textContent='Could not load spectral augmented records: '+e);
+</script></html>
