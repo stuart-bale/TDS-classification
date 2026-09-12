@@ -1,0 +1,32 @@
+{
+  "encounter": "E24",
+  "source": "Dropbox",
+  "files": 29,
+  "events": 5942,
+  "id_min": 4715,
+  "id_max": 10656,
+  "utc_min": "2025-06-01T14:35:16.481603000",
+  "utc_max": "2025-06-30T20:46:32.284048000",
+  "configurations": {
+    "incomplete": 12,
+    "alternate_configuration": 625,
+    "reference": 5305
+  },
+  "sample_rates": {
+    "1920000.0": 5942
+  },
+  "sample_lengths": {
+    "32768": 5942
+  },
+  "saturation_flagged": 187,
+  "missing_counts": 6,
+  "dust_threshold_candidates": 422,
+  "projected_events": 5305,
+  "nearest_E23_group_counts": {
+    "0": 4460,
+    "1": 845
+  },
+  "E23_basis_reproduction_max_error": 0.0,
+  "method": "E24 projected using frozen E23 scaling, feature weights, PCA basis and nearest E23 cluster centroid. No new cluster fit. PC1>3.1 is an unvalidated threshold transfer to E24. Alternate and incomplete configurations have no PCA assignment. Raw spectral power-supply lines still affect the original E23 feature space.",
+  "input_files_stable_during_extraction": true
+}
