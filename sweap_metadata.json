@@ -1,5 +1,5 @@
 {
-  "files": 16,
+  "files": 26,
   "attributes": {
     "SWEAP_Status": [
       {
@@ -73,14 +73,19 @@
   "values": {
     "SWEAP_Status": [
       {
+        "decimal": 0,
+        "hex": "0x00000000",
+        "n": 1
+      },
+      {
         "decimal": 2172732601,
         "hex": "0x818144B9",
-        "n": 98
+        "n": 435
       },
       {
         "decimal": 2172732606,
         "hex": "0x818144BE",
-        "n": 3464
+        "n": 3725
       },
       {
         "decimal": 2172732607,
@@ -95,20 +100,34 @@
     ],
     "SWEAP_Electron_Mask": [
       {
+        "decimal": 0,
+        "hex": "0x00000000",
+        "n": 3
+      },
+      {
         "decimal": 4294967295,
         "hex": "0xFFFFFFFF",
-        "n": 4116
+        "n": 4712
       }
     ],
     "SWEAP_Ion_Mask": [
       {
+        "decimal": 0,
+        "hex": "0x00000000",
+        "n": 1
+      },
+      {
         "decimal": 131082,
         "hex": "0x0002000A",
-        "n": 4116
+        "n": 4714
       }
     ]
   },
   "sweep_start_range_s": [
+    5.7447916333330795e-05,
+    145.6847686767578
+  ],
+  "sweep_start_range_present_digital_s": [
     5.7447916333330795e-05,
     0.8738059997558594
   ]

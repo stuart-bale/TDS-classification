@@ -1,6 +1,6 @@
 # SCM–voltage association flags
 
-4,079 of 4,116 bursts assessed (16,316 voltage/SCM pairs). Saturation and missing-SCM records remain unassessed. All four available voltages are tested against SCM5 or SCM4, keeping configurations separate.
+4,664 of 4,715 bursts assessed (18,656 voltage/SCM pairs). Saturation and missing-SCM records remain unassessed. All four available voltages are tested against SCM5 or SCM4, keeping configurations separate.
 
 Flags are deliberately descriptive and may overlap:
 
@@ -17,19 +17,19 @@ The catalog also retains zero-lag envelope r, signed peak r and lag, raw and mas
 | V4 / SCM5 | 3845 | -0.021 | 0.002 | 0.510 | 0.072 |
 | V1V2 / SCM5 | 3845 | 0.020 | -0.002 | 0.608 | 0.072 |
 | V3V4 / SCM5 | 3845 | -0.001 | 0.001 | 0.663 | 0.073 |
-| V2 / SCM4 | 234 | -0.209 | -0.012 | 0.897 | 0.071 |
-| V5 / SCM4 | 234 | 0.017 | -0.006 | 0.941 | 0.071 |
-| V1V2 / SCM4 | 234 | 0.074 | -0.018 | 0.799 | 0.072 |
-| V3V4 / SCM4 | 234 | 0.002 | -0.026 | 0.765 | 0.069 |
+| V2 / SCM4 | 819 | -0.208 | -0.001 | 0.882 | 0.071 |
+| V5 / SCM4 | 819 | -0.095 | -0.004 | 0.934 | 0.071 |
+| V1V2 / SCM4 | 819 | 0.092 | -0.002 | 0.783 | 0.071 |
+| V3V4 / SCM4 | 819 | -0.006 | -0.007 | 0.775 | 0.069 |
 
 Event-level flag counts (overlapping):
 
-- waveform correlation: 68
-- envelope association: 41
+- waveform correlation: 174
+- envelope association: 43
 - coherence outside persistent lines: 174
-- persistent-line dominated coherence: 2432
-- no threshold crossed: 1455
-- not assessed: 37
+- persistent-line dominated coherence: 3010
+- no threshold crossed: 1462
+- not assessed: 51
 
 [Full pairwise coefficients](scm_voltage_correlations.csv) · [Thresholds, masks and diagnostics](scm_voltage_diagnostics.json)
 

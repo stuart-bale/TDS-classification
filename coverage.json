@@ -1,0 +1,54 @@
+{
+  "files": 26,
+  "source_records": 4715,
+  "waveform_records": 4715,
+  "date_start": "2025-03-04",
+  "date_end": "2025-03-31",
+  "daily_counts": {
+    "2025-03-04": 27,
+    "2025-03-05": 56,
+    "2025-03-06": 51,
+    "2025-03-07": 71,
+    "2025-03-09": 48,
+    "2025-03-10": 88,
+    "2025-03-11": 67,
+    "2025-03-12": 62,
+    "2025-03-13": 56,
+    "2025-03-14": 79,
+    "2025-03-15": 62,
+    "2025-03-16": 42,
+    "2025-03-17": 98,
+    "2025-03-18": 227,
+    "2025-03-19": 262,
+    "2025-03-20": 274,
+    "2025-03-21": 569,
+    "2025-03-22": 476,
+    "2025-03-23": 481,
+    "2025-03-24": 571,
+    "2025-03-25": 245,
+    "2025-03-26": 240,
+    "2025-03-27": 274,
+    "2025-03-28": 218,
+    "2025-03-29": 41,
+    "2025-03-31": 30
+  },
+  "missing_calendar_dates_in_span": [
+    "2025-03-08",
+    "2025-03-30"
+  ],
+  "nominal_encounter_dates_without_file": [],
+  "digital_missing_events": [
+    4118,
+    4685
+  ],
+  "incomplete_analog_events": [
+    2048,
+    4118,
+    4685,
+    4707
+  ],
+  "no_analog_events": [
+    4707
+  ],
+  "completeness_interpretation": "All nominal E23 calendar dates have files. This establishes daily file coverage, not completeness of downlinked or selected TDS bursts."
+}

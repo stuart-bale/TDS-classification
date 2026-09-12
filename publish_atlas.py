@@ -33,7 +33,10 @@ def publish(args):
     for v in csv.DictReader((args.out/'electron_voltage_correlations.csv').open()):
         rows[int(v['event'])].update(voltage_count_peak_r=float(v['residual_r_at_peak']),voltage_count_peak_abs_r=float(v['max_residual_abs_r']),voltage_count_peak_lag_ms=float(v['counts_lag_ms']),voltage_count_peak_trace=v['peak_channel']+' '+v['peak_measure'])
     scm=json.loads((args.out/'scm_voltage_diagnostics.json').read_text())
-    for row in rows: tag_encounter(row)
+    for row in rows:
+        tag_encounter(row)
+        row.setdefault('counts_present',True)
+        row.setdefault('Burst_Time_Series_SWEAP_Exists_Flag',1)
     apply_expert_labels(rows)
     savecsv(args.out/'event_catalog.csv',rows)
     selected=set(json.loads((args.cache/'selected_examples.json').read_text()))

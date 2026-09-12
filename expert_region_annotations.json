@@ -1,0 +1,11 @@
+[
+  {
+    "projection": "Primary analog PCA",
+    "region": "high PC1",
+    "physical_interpretation": "dust impacts",
+    "source": "User / instrument PI",
+    "numeric_boundary": null,
+    "reference_site_revision": "06d4d977c40fd61c0dea73e5a3dd772aa685b7c8",
+    "individual_labels_inferred": false
+  }
+]

@@ -54,14 +54,16 @@ def run(args):
     bins=np.array([v['counts']['bins'] for v in prev],float);phase=np.array([r['SWEAP_Start'] for r in rows])
     day=np.array([r['day'] for r in rows]);dt=128/fs
     samplephase=phase[:,None]+(np.arange(256)+.5)*dt
-    edges=np.linspace(0,float(samplephase.max())+1e-8,601);center=(edges[:-1]+edges[1:])/2
+    present=np.array([r.get('counts_present',True) for r in rows])
+    for r in rows:r['counts_phase_baseline_status_matched']=False;r['counts_phase_training_n']=0
+    edges=np.linspace(0,float(samplephase[present].max())+1e-8,601);center=(edges[:-1]+edges[1:])/2
     baseline=np.zeros_like(bins);models={}
     status=np.array([str(r['SWEAP_Status']) for r in rows])
     for d in np.unique(day):
-      for state in np.unique(status[day==d]):
-        target=(day==d)&(status==state);source=(day!=d)&(status==state)
+      for state in np.unique(status[(day==d)&present]):
+        target=(day==d)&(status==state)&present;source=(day!=d)&(status==state)&present
         training_n=int(np.sum(source));fallback=training_n<20
-        if fallback:source=day!=d
+        if fallback:source=(day!=d)&present
         xp=samplephase[source].ravel();yp=bins[source].ravel();bi=np.clip(np.digitize(xp,edges)-1,0,len(center)-1)
         profile=np.array([np.median(yp[bi==i]) if np.any(bi==i) else np.nan for i in range(len(center))])
         valid=np.isfinite(profile);profile=np.interp(center,center[valid],profile[valid])
@@ -85,7 +87,7 @@ def run(args):
         rows[i]['counts_phase_residual_rms']=float(np.sqrt(np.mean(residual**2)))
         prev[i]['counts']['phase_expected']=np.round(expected,3).tolist();prev[i]['counts']['phase_residual']=np.round(residual,3).tolist()
     RF=np.array(resfeatures);cl,si,ag,zr,rd=simple_fit(RF[ci],maxk=6)
-    for r in rows:r['residual_count_group']=-1;r['residual_count_status']='insufficient counts' if r['counts_phase_baseline_status_matched'] else 'insufficient matching-status training records'
+    for r in rows:r['residual_count_group']=-1;r['residual_count_status']='channel absent' if not r.get('counts_present',True) else 'insufficient counts' if r['counts_phase_baseline_status_matched'] else 'insufficient matching-status training records'
     for j,i in enumerate(ci):rows[i].update(residual_count_group=int(cl[j]),residual_count_status='core' if si[j]>=.05 and ag[j]>=.8 else 'ambiguous')
     from scipy.spatial.distance import cdist
     rd['groups']=[]
@@ -93,7 +95,7 @@ def run(args):
         sub=np.flatnonzero(cl==g);ids=ci[sub];med=int(ids[np.argmin(cdist(zr[sub],zr[sub]).sum(axis=1))])
         rd['groups'].append({'group':g,'n':len(ids),'medoid':med,'core':sum(rows[i]['residual_count_status']=='core' for i in ids),
                             'median_residual_rms':float(np.median([rows[i]['counts_phase_residual_rms'] for i in ids]))})
-    rd.update(cross_day_log1p_total_R2=r2,baseline_valid_n=int(baseline_valid.sum()),baseline_cross_status_fallback_n=int((~baseline_valid).sum()),profiles=models,features=['log_residual_rms','log_crest','asymmetry','lag1_corr','spectral_entropy','top10pct_energy'],
+    rd.update(cross_day_log1p_total_R2=r2,baseline_valid_n=int(baseline_valid.sum()),baseline_cross_status_fallback_n=int(((~baseline_valid)&present).sum()),missing_digital_n=int((~present).sum()),profiles=models,features=['log_residual_rms','log_crest','asymmetry','lag1_corr','spectral_entropy','top10pct_energy'],
         caveat='Cross-day empirical phase profile within SWEAP status, 600 bins; gain adjusted per event. Counts standardized by sqrt(expected+1), not a calibrated counting-noise model. Fine scan structure, timing drift, and rate changes can remain.')
     dump(args.out/'sensitivity_diagnostics.json',{'persistent_lines':line_result,'phase_conditioned_counts':rd})
     dump(args.cache/'final_records.json',rows);dump(args.cache/'previews.json',prev);savecsv(args.out/'event_catalog.csv',rows)

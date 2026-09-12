@@ -1,19 +1,20 @@
 {
-  "previous_records": 2999,
-  "current_records": 4116,
+  "previous_records": 4116,
+  "current_records": 4715,
   "old_k": 2,
   "new_k": 2,
-  "ARI_on_same_preexisting_fit_records": 0.16118369282647946,
-  "n_compared": 2880,
+  "n_compared": 3845,
+  "ARI_on_same_preexisting_fit_records": 1.0,
   "old_groups_by_new_groups": [
     [
-      686,
-      173
+      3580,
+      0
     ],
     [
-      2008,
-      13
+      0,
+      265
     ]
   ],
-  "old_event_ids_preserved": true
+  "old_event_ids_preserved": true,
+  "max_existing_pc1_change": 0.0
 }

@@ -1,18 +1,18 @@
 # TDS waveform classification: exploratory atlas
 
-**4116 six-channel bursts, 2025-03-04 to 2025-03-29.** Per-file record counts: 20250304: 27, 20250307: 71, 20250316: 42, 20250317: 98, 20250318: 227, 20250319: 263, 20250320: 273, 20250321: 569, 20250322: 476, 20250323: 481, 20250324: 571, 20250325: 245, 20250326: 240, 20250327: 274, 20250328: 218, 20250329: 41. This is a reproducible morphology atlas and event catalog, with analog, digital-count, and joint partitions. No plasma-wave or dust examples, templates, or physical labels were supplied to the algorithms. Group numbers describe the current fit only. Inspect medoids and feature medians; no physical origins are assigned.
+**4715 six-channel bursts, 2025-03-04 to 2025-03-31.** Per-file record counts: 20250304: 27, 20250305: 56, 20250306: 51, 20250307: 71, 20250309: 48, 20250310: 88, 20250311: 67, 20250312: 62, 20250313: 56, 20250314: 79, 20250315: 62, 20250316: 42, 20250317: 98, 20250318: 227, 20250319: 263, 20250320: 273, 20250321: 569, 20250322: 476, 20250323: 481, 20250324: 571, 20250325: 245, 20250326: 240, 20250327: 274, 20250328: 218, 20250329: 41, 20250331: 30. This is a reproducible morphology atlas and event catalog, with analog, digital-count, and joint partitions. No plasma-wave or dust examples, templates, or physical labels were supplied to the algorithms. Group numbers describe the current fit only. Inspect medoids and feature medians; no physical origins are assigned.
 
 ## Findings
 
-The expanded dataset favors **2 broad analog groups**. Mean silhouette is **0.298**, and median resampling adjusted Rand index (ARI) is **0.530**. There is useful recurring structure, but substantial overlap and representation dependence. This is **not a validated physical taxonomy**. The catalog retains **3269 core, 499 ambiguous, 77 outlier, 29 saturation-status, and 242 configuration-exception** records. In total 37 records have the saturation flag: some also have an alternate or incomplete configuration. These statuses are mutually exclusive; the original saturation flag is preserved.
+The expanded dataset favors **2 broad analog groups**. Mean silhouette is **0.298**, and median resampling adjusted Rand index (ARI) is **0.530**. There is useful recurring structure, but substantial overlap and representation dependence. This is **not a validated physical taxonomy**. The catalog retains **3269 core, 499 ambiguous, 77 outlier, 29 saturation-status, and 841 configuration-exception** records. In total 51 records have the saturation flag: some also have an alternate or incomplete configuration. These statuses are mutually exclusive; the original saturation flag is preserved.
 
-The digital counts show a repeatable dependence on SWEAP sweep phase. A profile trained on the other days within each SWEAP status predicts log(1 + total counts) with pooled held-out-day **R² = 0.743**. This is a prediction score on log-transformed totals, not a fraction of individual electrons or raw count variance. Repeated rises and falls across sweep phase are visible in the overview; a monotonic correlation alone misses this structure.
+The digital counts show a repeatable dependence on SWEAP sweep phase. A profile trained on the other days within each SWEAP status predicts log(1 + total counts) with pooled held-out-day **R² = 0.745**. This is a prediction score on log-transformed totals, not a fraction of individual electrons or raw count variance. Repeated rises and falls across sweep phase are visible in the overview; a monotonic correlation alone misses this structure.
 
 Detected persistent spectral-line bins contain a median **97.4% of SCM5 Welch power**. The corresponding electric-channel fractions are much smaller. Masking these bins in spectral descriptors changes the analog partition substantially (ARI **0.661**). Persistence alone does not prove an instrumental origin. Original engineering waveforms are retained, and masking is only a sensitivity experiment.
 
 The initial two-day fit favored five smaller groups. The three-day fit favored three broader groups; the expanded result above supersedes it. That change, and the weak independent-day agreement for some days, show that these boundaries are provisional and sample-dependent.
 
-Relative to the previous 2,999-record run, the selected group count changes from 2 to 2. Agreement on the same 2,880 previously fitted records is ARI 0.161. Group numbering and membership must be reviewed after refitting; event IDs remain stable.
+Relative to the previous 4,116-record run, the selected group count changes from 2 to 2. Agreement on the same 3,845 previously fitted records is ARI 1.000. Group numbering and membership must be reviewed after refitting; event IDs remain stable.
 
 See refit_comparison.json for the old-to-new assignment table.
 
@@ -23,7 +23,16 @@ Every record has both solar-distance-known and solar-distance-valid flags set. T
 | Date | Distance from Sun center (R☉) | Direction counts |
 |---|---:|---|
 | 20250304 | 118.22–118.55 | {'inbound': 27} |
+| 20250305 | 114.54–117.80 | {'inbound': 56} |
+| 20250306 | 110.97–114.45 | {'inbound': 51} |
 | 20250307 | 107.17–110.92 | {'inbound': 71} |
+| 20250309 | 99.01–103.18 | {'inbound': 48} |
+| 20250310 | 94.92–98.90 | {'inbound': 88} |
+| 20250311 | 89.94–94.24 | {'inbound': 67} |
+| 20250312 | 84.84–89.21 | {'inbound': 62} |
+| 20250313 | 79.70–84.63 | {'inbound': 56} |
+| 20250314 | 74.36–79.06 | {'inbound': 79} |
+| 20250315 | 68.29–73.81 | {'inbound': 62} |
 | 20250316 | 61.34–67.30 | {'inbound': 42} |
 | 20250317 | 54.36–61.01 | {'inbound': 98} |
 | 20250318 | 46.40–53.86 | {'inbound': 227} |
@@ -38,6 +47,7 @@ Every record has both solar-distance-known and solar-distance-valid flags set. T
 | 20250327 | 47.24–54.84 | {'outbound': 274} |
 | 20250328 | 55.04–61.89 | {'outbound': 218} |
 | 20250329 | 62.07–67.41 | {'outbound': 41} |
+| 20250331 | 77.63–79.32 | {'outbound': 30} |
 
 Distance spans approximately 9.87–118.55 R☉. The March 22 file includes the inward-to-outward transition; subsequent records are outbound. The atlas shows radius and direction for each burst, filters by both, and includes radial group/amplitude comparisons. These context variables were withheld from clustering. Differences between days can therefore be examined as possible radial trends, while accounting for selection, instrument effects, and overlapping inbound/outbound coverage. The closest recorded burst is not necessarily the exact perihelion instant.
 
@@ -45,7 +55,7 @@ Full position and velocity vectors have not been loaded; radial context here use
 
 ## Alternate analog configuration
 
-[Separate V5 / SCM4 results](alternate_configuration_report.md) include a separate morphology assessment and voltage/count correlations. No candidate met the minimum group-size rule; A0 is an unpartitioned browsing pool. The primary fit below retains a consistent channel configuration.
+[Separate V5 / SCM4 results](alternate_configuration_report.md) include a separate morphology assessment and voltage/count correlations. The separate V5 / SCM4 fit selected 2 provisional A groups. The primary fit below retains a consistent channel configuration.
 
 ## Analog groups
 
@@ -62,34 +72,34 @@ The impulsiveness ranking exposes isolated large transients without a physical t
 
 ## Digital SPAN-electron channel
 
-The user identifies the sixth channel as SPAN-electron counts. The CDF samples are nonnegative integers represented as floats. **All 4116 waveform sums exactly reproduce their stored burst totals.** The samples are treated as increments, not as a cumulative counter. Coded SWEAP status and electron/ion selection masks are preserved without assigning undocumented bit meanings.
+The user identifies the sixth channel as SPAN-electron counts. The CDF samples are nonnegative integers represented as floats. **All 4715 waveform sums exactly reproduce their stored burst totals.** The samples are treated as increments, not as a cumulative counter. Coded SWEAP status and electron/ion selection masks are preserved without assigning undocumented bit meanings.
 
-There are **277 zero-count** bursts and **664 with 1–31 counts**. These remain browsable but are not assigned a count-shape group. The 32-count cutoff is a pragmatic minimum, not an instrument sensitivity limit. The remaining **3175** records split into:
+There are **355 zero-count** bursts and **817 with 1–31 counts**. These remain browsable but are not assigned a count-shape group. The 32-count cutoff is a pragmatic minimum, not an instrument sensitivity limit. The remaining **3541** records split into:
 
 | Group | Description | Records | Core | Medoid |
 |---|---|---:|---:|---:|
-| C0 | Count-shape group 0 | 2843 | 2427 | 3427 |
-| C1 | Count-shape group 1 | 332 | 223 | 2717 |
+| C0 | Count-shape group 0 | 806 | 193 | 2408 |
+| C1 | Count-shape group 1 | 2735 | 2614 | 3427 |
 
-The count partition has mean silhouette **0.571** and median resampling ARI **0.571**. Adding count rate changes it appreciably (ARI **0.253**). Some shape descriptors still depend on counting statistics despite excluding absolute rate from this primary partition.
+The count partition has mean silhouette **0.430** and median resampling ARI **0.433**. Adding count rate changes it appreciably (ARI **0.826**). Some shape descriptors still depend on counting statistics despite excluding absolute rate from this primary partition.
 
-The viewer also shows a **phase-conditioned expected count trace** and residuals. The expected shape is learned from the other days within the same SWEAP status, with one burst-specific gain to match its approximate total. Residual = (observed − expected)/sqrt(expected + 1). This is an inspection normalization, not a calibrated detector-noise model. Residual partitions are less stable (median resampling ARI **0.113**) and should be regarded as tentative rankings:
+The viewer also shows a **phase-conditioned expected count trace** and residuals. The expected shape is learned from the other days within the same SWEAP status, with one burst-specific gain to match its approximate total. Residual = (observed − expected)/sqrt(expected + 1). This is an inspection normalization, not a calibrated detector-noise model. Residual partitions are less stable (median resampling ARI **0.080**) and should be regarded as tentative rankings:
 
 | Residual group | Records | Core | Median residual RMS | Medoid |
 |---|---:|---:|---:|---:|
-| R0 | 488 | 415 | 0.659 | 3800 |
-| R1 | 2685 | 1380 | 1.405 | 1322 |
+| R0 | 1951 | 420 | 1.019 | 3682 |
+| R1 | 1588 | 1320 | 1.705 | 2753 |
 
-The **joint 2-way partition** uses **2993 unsaturated common-configuration records with at least 32 counts**. Its ARI against the analog partition on the same subset is **-0.020**; analog and raw-count partitions themselves have ARI **-0.015**. They organize events differently. The catalog therefore retains analog G, raw-count C, residual R, and joint J labels separately; their integer numbering is independent.
+The **joint 2-way partition** uses **2993 unsaturated common-configuration records with at least 32 counts**. Its ARI against the analog partition on the same subset is **-0.020**; analog and raw-count partitions themselves have ARI **-0.007**. They organize events differently. The catalog therefore retains analog G, raw-count C, residual R, and joint J labels separately; their integer numbering is independent.
 
 ## Method and verification
 
 1. **Read-only ingestion.** Each record supplies 32,768 samples at 1.92 MSa/s, or 17.0667 ms of exposure. Arrays are padded to 262,144; only the actual samples enter analysis. All analog-channel existence flags were checked; only channels marked present were read; all loaded waveform values are finite and non-fill. Counts are integer and nonnegative with exact total agreement. TT2000 integers are preserved as decimal strings to avoid browser number-precision loss. Records have distinct file/record provenance and timestamps. Sample timing checks at file boundaries agree with 520/521 ns quantized spacing. Event and CDF record indices are zero-based.
-2. **Engineering units.** The frequency-corrected physical-units flag is zero throughout. Electric channels stay in engineering mV and SCM5 in engineering nT, without transfer-function correction. Antenna voltages are not converted to electric fields. All records share 864 kHz low-pass settings and are read without downsampling. The March 4, 7, 16 and 17 records, and three March 18 records, have V5/SCM4 instead of V4/SCM5; one March 29 record has only V2 and V3V4 among the analog slots. These records have no primary G or joint assignment. A separate analysis retains the complete V5/SCM4 configuration; see alternate_configuration_report.md. Their actual channels and digital counts remain browsable. Primary canonical feature fields are unavailable, not imputed; actual alternate-channel features and voltage/count associations have separate tables. Thrusting and SCM-calibration flags are zero. The TWTA-on flag is set in 127 records; it is preserved and included in the adjusted voltage/count comparison. Configuration variables are checked separately from clustering features.
+2. **Engineering units.** The frequency-corrected physical-units flag is zero throughout. Electric channels stay in engineering mV and SCM5 in engineering nT, without transfer-function correction. Antenna voltages are not converted to electric fields. All records share 864 kHz low-pass settings and are read without downsampling. Complete alternate records have V5/SCM4 instead of V4/SCM5. Incomplete configurations and missing electron channels are enumerated in [the coverage inventory](coverage.json). These records have no primary G or joint assignment. A separate analysis retains the complete V5/SCM4 configuration; see alternate_configuration_report.md. Their available channels remain browsable. Missing electron channels are labeled absent and excluded from count-reference training and count-based fits; zero-shaped internal preview placeholders are not observed zero counts. Primary canonical feature fields are unavailable, not imputed; actual alternate-channel features and voltage/count associations have separate tables. Thrusting and SCM-calibration flags are zero. The TWTA-on flag is set in 127 records; it is preserved and included in the adjusted voltage/count comparison. Configuration variables are checked separately from clustering features.
 3. **Analog features.** Subtract channel medians. Extract 89 features: normalized crest factor, fourth moment, signed asymmetry, energy duration/asymmetry, RMS-envelope occupancy, energy concentration, zero crossings, autocorrelation, spectral entropy/median/bandwidth/concentration, correlations, envelope correlations, and power-weighted coherence. These features are invariant to positive per-channel gain changes; this was checked numerically on sample records. Five absolute log-RMS amplitudes are saved separately.
 4. **Spectral estimation.** Hann-window Welch averages, 4096 samples, 50% overlap, 468.75 Hz bins. Coherence uses the same multi-segment averaging, not a single periodogram. Physical polarization, phase speeds, and wave modes are not inferred from uncorrected channels. Sub-469 Hz spectral detail is poorly resolved by this feature representation, although slow waveform structure remains in temporal descriptors.
 5. **Clustering.** Median/IQR scaling with standard-deviation fallback; clip standardized values to ±5. Temporal, spectral, and cross-channel feature families have equal summed squared-distance weight. Ward hierarchical clustering uses the full feature space, not the two-dimensional PCA display. Examine k = 2–10 and select the best silhouette among partitions with at least 20 records per group. The constrained choice is k = 2; the unconstrained silhouette optimum is k = 2. This is a declared browsing rule, not proof of a natural class count.
-6. **Assignment policy.** Core requires silhouette ≥0.05 and matched-label agreement ≥0.80 across 50 repetitions drawing 80% of records and 80% of features, with scaling refitted. An outlier lies above the empirical 98th percentile of distance to its 15th neighbor: this deliberately flags 77 records and is not a calibrated anomaly probability. Other unsaturated records remain ambiguous. All 37 saturation-flagged records are excluded from fitting but fully plotted.
+6. **Assignment policy.** Core requires silhouette ≥0.05 and matched-label agreement ≥0.80 across 50 repetitions drawing 80% of records and 80% of features, with scaling refitted. An outlier lies above the empirical 98th percentile of distance to its 15th neighbor: this deliberately flags 77 records and is not a calibrated anomaly probability. Other unsaturated records remain ambiguous. All 51 saturation-flagged records are excluded from fitting but fully plotted.
 7. **Digital features.** Count dispersion on several aggregation scales, normalized against random rearrangement of empirical single-sample counts; temporal concentration/asymmetry/entropy; spectral shape; and single-sample Fano factor. Forty record/feature resamples assess count groups. Count-to-analog envelope relationships are separate features in the joint analysis.
 8. **Cross-channel inspection.** Counts are summed in 128-sample bins (66.67 µs), paired with analog RMS envelopes. Record the largest absolute circular correlation across five channels and ±16 bins. Circular-shift reference p-values and BH-adjusted values are exploratory: scan structure and nonstationarity can invalidate the null. They are not detections of wave–particle interaction and are not physical labels.
 9. **Empirical phase baseline.** Divide the observed sample-phase range into 600 bins, use median binned counts from other days with the same SWEAP status, apply a three-bin median smoother and interpolate. No periodic wrap or assumed sweep frequency is imposed. Fit a per-event overall count gain for residual-shape inspection. The reported cross-day R² uses unscaled other-day predictions with matching SWEAP status. Fewer than 20 matching-status training records on other days triggers a flagged cross-status preview, excluded from this R² and residual-count classification. Timing shifts, instrumental scan details, and changing plasma conditions can remain in the residuals.
@@ -133,9 +143,13 @@ A separate [correlation analysis](electron_voltage_report.md) compares voltage R
 
 The [SCM association analysis](scm_voltage_report.md) adds explicit per-event flags and pairwise coefficients for every available voltage with SCM5 or SCM4. Waveform and envelope correlation, coherence outside persistent lines, and line-dominated coherence remain distinct screening categories.
 
+## Coverage and physical identifications
+
+See [the methods and coverage page](methods.html) for E23 date tags, daily file coverage, missing channels, and the PI’s dust-impact reference and high-PC1 regional interpretation. Physical annotations remain separate from unsupervised groups.
+
 ## Outputs
 
-Open **atlas.html** in a current browser. It works offline and contains all 4116 events, six-channel previews, filtering, nearest analog neighbors, spectra, count baselines/residuals, and local annotation/export. Full-record displays are 256-bin min/max envelopes, not downsampled waveforms; do not infer frequency from their apparent ripples. Viewer zooms contain 512 actual samples at the strongest normalized electric excursion. Example PNGs use 1024 actual samples and the original Welch frequency bins. Viewer spectra are log-binned previews; classification uses the original bins.
+Open **atlas.html** in a current browser. It works offline and contains all 4715 events, six-channel previews, filtering, nearest analog neighbors, spectra, count baselines/residuals, and local annotation/export. Full-record displays are 256-bin min/max envelopes, not downsampled waveforms; do not infer frequency from their apparent ripples. Viewer zooms contain 512 actual samples at the strongest normalized electric excursion. Example PNGs use 1024 actual samples and the original Welch frequency bins. Viewer spectra are log-binned previews; classification uses the original bins.
 
 Figure files are in **/Users/bale/Dropbox/projects/PSP/Work/TDS/figures/waveform_classification**, alongside `data`, as requested. The overview is embedded in the atlas; links to example PNGs point to that local directory. Source CDFs remain unchanged. SHA-256 hashes, features, catalogs, model settings, and scripts accompany the atlas. The HTML contains data-derived previews, not copies of the original CDFs.
 

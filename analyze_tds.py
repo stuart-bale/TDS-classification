@@ -180,7 +180,7 @@ def extract(args):
           'Trigger_Source_Name','Trigger_Position','Burst_Saturation_Flag','Sample_Speed',
           'N_Samples_per_Channel','Low_Pass_Filter','SC_Thrusting_Flag','SC_TWTA_On_Flag',
           'SCM_Cal_On_Flag','Burst_Time_Series_Physical_Units_Valid_Flag',
-          'Burst_Total_SWEAP_Counts','SWEAP_Status','SWEAP_Electron_Mask','SWEAP_Ion_Mask','SWEAP_Start']
+          'Burst_Total_SWEAP_Counts','SWEAP_Status','SWEAP_Electron_Mask','SWEAP_Ion_Mask','SWEAP_Start','Burst_Time_Series_SWEAP_Exists_Flag']
     for file in files:
         h=hashlib.sha256()
         with file.open('rb') as stream:
@@ -193,7 +193,13 @@ def extract(args):
         metadata={v:c.varget(P+v) for v in meta}
         inventory.append({'file':file.name,'bytes':file.stat().st_size,'sha256':h.hexdigest(),
                           'records':nr,'variables':len(c.cdf_info().zVariables)})
+        inventory[-1]['excluded_empty_records']=[]
         for rec in range(nr):
+            names=channel_names(c,rec)
+            if all(ch is None for ch in names) and not metadata['Burst_Time_Series_SWEAP_Exists_Flag'][rec]:
+                inventory[-1]['excluded_empty_records'].append(rec)
+                print('Excluded empty record (no analog or digital channels)',file.name,rec,flush=True)
+                continue
             row={'event':len(rows),'file':file.name,'record':rec,'tt2000':str(int(ep[rec])),
                  'utc':str(cdfepoch.to_datetime(ep[rec:rec+1])[0]),'day':file.name.split('_')[-2]}
             for key,vals in metadata.items():
@@ -205,9 +211,11 @@ def extract(args):
             row['analog_configuration']='reference' if names==CHANNELS else 'incomplete' if None in names else 'alternate_configuration'
             x=waveform(c,rec,n)
             fe,am,aux,preview=describe(x,fs)
-            counts=c.varget(P+'Burst_Time_Series_SWEAP_Counts',startrec=rec,endrec=rec).ravel()[:n].astype(float)
+            row['counts_present']=bool(row['Burst_Time_Series_SWEAP_Exists_Flag'])
+            if not row['counts_present']:row['Burst_Total_SWEAP_Counts']=None
+            counts=c.varget(P+'Burst_Time_Series_SWEAP_Counts',startrec=rec,endrec=rec).ravel()[:n].astype(float) if row['counts_present'] else np.zeros(n)
             cf,ca,cp=describe_counts(counts,x,fs)
-            if int(counts.sum())!=int(row['Burst_Total_SWEAP_Counts']):raise ValueError('Count total mismatch')
+            if row['counts_present'] and int(counts.sum())!=int(row['Burst_Total_SWEAP_Counts']):raise ValueError('Count total mismatch')
             cp['zoom']=cp['zoom'][preview['zoom_start']:preview['zoom_start']+1024].tolist()
             # Compact count spectrum on the same logarithmic bins as the analog PSDs.
             ff=np.arange(1,2049)*fs/4096;ee=np.unique(np.rint(np.geomspace(1,len(ff),180)).astype(int))-1
@@ -219,9 +227,11 @@ def extract(args):
                 for k in cf:
                     if k.startswith('count_pair_'):cf[k]=float('nan')
                 ca['counts_envelope_max_abs_corr']=None;ca['counts_shift_p_exploratory']=None
+            cp['present']=row['counts_present']
             preview['counts']=cp;row.update(ca);countfeatures.append(cf)
             row.update(aux);rows.append(row);features.append(fe);amplitudes.append(am);previews.append(preview)
             if rec%100==0:print(file.name,rec,'/',nr,flush=True)
+    for entry in inventory: entry['waveform_records']=entry['records']-len(entry.get('excluded_empty_records',[]))
     keys=list(features[0]);akeys=list(amplitudes[0])
     X=np.array([[r[k] for k in keys] for r in features]); A=np.array([[r[k] for k in akeys] for r in amplitudes])
     reference=np.array([r.get('analog_configuration','reference')=='reference' for r in rows])

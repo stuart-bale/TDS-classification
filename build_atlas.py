@@ -48,7 +48,7 @@ def counts_and_joint(args,rows,z,model):
     nc=sum(k.startswith('counts__') for k in ckeys)
     lab,si,ag,zc,cd=simple_fit(C[ix,:nc]);cd['features']=ckeys[:nc];cd['minimum_counts']=32
     for r in rows:
-        r['count_group']=-1;r['count_status']='zero counts' if r['counts_total']==0 else 'too few counts'
+        r['count_group']=-1;r['count_status']='channel absent' if not r.get('counts_present',True) else 'zero counts' if r['counts_total']==0 else 'too few counts'
         r['count_stability']=None;r['count_silhouette']=None
     groups=[]
     for j,i in enumerate(ix):
@@ -129,6 +129,9 @@ def plot_event(args,r,filename):
     if np.any(ps[1:]>0):axs[5,2].loglog(f[1:]/1000,ps[1:],color='#222222',lw=.7)
     else:axs[5,2].text(.5,.5,'Zero counts',transform=axs[5,2].transAxes,ha='center')
     axs[5,2].set_ylabel('counts²/Hz',fontsize=8)
+    if not r.get('counts_present',True):
+        for col in range(3):
+            axs[5,col].clear();axs[5,col].text(.5,.5,'SPAN-e channel absent',transform=axs[5,col].transAxes,ha='center');axs[5,col].set_axis_off()
     for j in range(6):
         for col in range(3):axs[j,col].grid(alpha=.15);axs[j,col].tick_params(labelsize=8)
         axs[j,0].set_xlim(0,n/fs*1000)
@@ -136,7 +139,7 @@ def plot_event(args,r,filename):
     axs[5,0].set_xlabel('Time since burst start (ms)');axs[5,1].set_xlabel('Time since burst start (ms)');axs[5,2].set_xlabel('Frequency (kHz)')
     label=f"G{r['group']} / {r['status']}" if r['group']>=0 else f"A{r['alternate_group']} / {r['alternate_status']}" if r.get('alternate_group',-1)>=0 else r['status']
     fig.suptitle(f"Event {r['event']} · {r['utc'][:26]} UTC · {label} · C{r['count_group']} / {r['count_status']}\n"
-        f"Engineering units, median removed. SPAN-e total {r['counts_total']:,}; sweep phase {r['SWEAP_Start']:.6f} s; status {r['SWEAP_Status']}",fontsize=11)
+        f"Engineering units, median removed. SPAN-e total {format(r['counts_total'], ',') if r.get('counts_present',True) else 'unavailable'}; sweep phase {r['SWEAP_Start']:.6f} s; status {r['SWEAP_Status']}",fontsize=11)
     fig.savefig(filename,dpi=135);plt.close(fig)
 
 def overview(args,rows,model,cd,nuisance):
@@ -156,7 +159,7 @@ def overview(args,rows,model,cd,nuisance):
     cand=model['candidates'];axs[0,2].plot([r['k'] for r in cand],[r['silhouette'] for r in cand],'o-',color=COLORS[0])
     axs[0,2].axvline(model['k'],ls=':',color='#555');axs[0,2].set(xlabel='Number of groups',ylabel='Mean silhouette',title='Separation across candidate partitions')
     for g in sorted(set(r['count_group'] for r in rows)):
-        rr=[r for r in rows if r['count_group']==g]
+        rr=[r for r in rows if r['count_group']==g and r.get('counts_present',True)]
         axs[1,0].scatter([r['SWEAP_Start'] for r in rr],[r['counts_total']+1 for r in rr],s=11,alpha=.5,color=COLORS[g] if g>=0 else '#aaa',label=f'C{g}' if g>=0 else 'Insufficient counts')
     axs[1,0].set(yscale='log',xlabel='Time since SWEAP sweep start (s)',ylabel='Counts per burst + 1',title='Digital-channel groups and sweep phase');axs[1,0].legend(fontsize=8)
     tab=nuisance['analog']['Burst_Type_Name'];a=np.array(tab['table']);a=a/a.sum(axis=0,keepdims=True)
