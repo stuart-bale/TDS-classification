@@ -23,5 +23,6 @@
   "missing_context_dates": [
     "2025-03-08",
     "2025-03-30"
-  ]
+  ],
+  "dust_rule_tests": "passed: 59 matches, strict PC1 > 3.1, primary PCA applicability, physical filters and search"
 }

@@ -1,0 +1,15 @@
+{
+  "langmuir": {
+    "criterion": "Relatively monochromatic voltage events near the local electron plasma frequency",
+    "source": "Instrument PI",
+    "status": "Awaiting measured plasma frequency or electron density; no automatic event labels applied",
+    "monochromaticity_cutoff": null,
+    "frequency_match_tolerance": null
+  },
+  "illustrative_radial_reference": {
+    "electron_density_at_1_AU_cm3": 5,
+    "density_radial_exponent": -2,
+    "frequency_formula_kHz": "8.98 * sqrt(5) / R_AU",
+    "status": "Assumed normalization, not an E23 density measurement; not used to assign Langmuir labels"
+  }
+}
