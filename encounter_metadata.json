@@ -1,0 +1,13 @@
+{
+  "encounter": 23,
+  "perihelion_date": "2025-03-22",
+  "encounter_start_date": "2025-03-18",
+  "encounter_end_date": "2025-03-27",
+  "counts": {
+    "within": 3619,
+    "after": 259,
+    "before": 238
+  },
+  "source": "https://science.nasa.gov/blogs/parker-solar-probe/2025/03/25/nasas-parker-solar-probe-completes-23rd-close-approach-to-sun/",
+  "boundary_precision": "UTC calendar date; inclusive; exact operational boundary times not supplied"
+}

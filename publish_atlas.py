@@ -6,6 +6,8 @@ from collections import Counter
 from analyze_tds import dump,transform
 from build_atlas import plot_event,savecsv
 from build_methods import build_methods
+from encounter_tags import tag_encounter
+from expert_labels import apply_expert_labels
 
 NAMES=['Sustained oscillatory / spectrally concentrated',
        'Irregular electric fluctuations / broader spectra',
@@ -31,6 +33,8 @@ def publish(args):
     for v in csv.DictReader((args.out/'electron_voltage_correlations.csv').open()):
         rows[int(v['event'])].update(voltage_count_peak_r=float(v['residual_r_at_peak']),voltage_count_peak_abs_r=float(v['max_residual_abs_r']),voltage_count_peak_lag_ms=float(v['counts_lag_ms']),voltage_count_peak_trace=v['peak_channel']+' '+v['peak_measure'])
     scm=json.loads((args.out/'scm_voltage_diagnostics.json').read_text())
+    for row in rows: tag_encounter(row)
+    apply_expert_labels(rows)
     savecsv(args.out/'event_catalog.csv',rows)
     selected=set(json.loads((args.cache/'selected_examples.json').read_text()))
     selected.update(g['medoid'] for g in sens['phase_conditioned_counts']['groups'])

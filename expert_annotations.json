@@ -1,0 +1,12 @@
+[
+  {
+    "event": 1584,
+    "file": "psp_fld_l2_tds_wf_20250318_v00.cdf",
+    "record": 56,
+    "tt2000": "795557886079577000",
+    "utc": "2025-03-18T08:16:56.895577000",
+    "label": "Dust impact",
+    "source": "User identification: events that look like 1584 are dust impacts",
+    "scope": "Event 1584 is the reference; similar events are candidates, not automatically confirmed."
+  }
+]
