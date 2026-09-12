@@ -1,11 +1,15 @@
 [
   {
     "projection": "Primary analog PCA",
-    "region": "high PC1",
-    "physical_interpretation": "dust impacts",
-    "source": "User / instrument PI",
-    "numeric_boundary": null,
-    "reference_site_revision": "06d4d977c40fd61c0dea73e5a3dd772aa685b7c8",
-    "individual_labels_inferred": false
+    "field": "pc1",
+    "operator": ">",
+    "threshold": 3.1,
+    "physical_label": "Dust impact",
+    "classification_status": "provisional",
+    "source": "Instrument PI: at first blush, classify everything with PC1 > 3.1 as dust impacts",
+    "applies_to": "Records plotted in the primary PCA, including saturation-flagged projections; alternate configurations have no valid primary PCA interpretation.",
+    "reference_site_revision": "fdd76a37b871e031e60fd6e5ccfea7b6b3933415",
+    "refit_policy": "Revalidate the numerical threshold if the primary PCA basis or scaling changes.",
+    "individual_labels_inferred": true
   }
 ]
