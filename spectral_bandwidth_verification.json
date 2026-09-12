@@ -1,0 +1,39 @@
+{
+  "synthetic_tone": {
+    "peak_hz": 300000.0,
+    "fwhm_hz": 625.0,
+    "fractional_bandwidth": 0.0020833333333333333,
+    "left_hz": 299687.5,
+    "right_hz": 300312.5,
+    "peak_power_fraction": 0.6666666666666667,
+    "background_psd": 5.8603008832646e-32,
+    "peak_to_background": 1.2134378853171997e+28,
+    "frequency_bin_hz": 468.75,
+    "prominent_peak_count": 1,
+    "flags": [
+      "resolution_limited",
+      "near_known_line_grid"
+    ]
+  },
+  "two_tone": {
+    "peak_hz": 300000.0,
+    "fwhm_hz": 625.0,
+    "fractional_bandwidth": 0.0020833333333333333,
+    "left_hz": 299687.5,
+    "right_hz": 300312.5,
+    "peak_power_fraction": 0.40650405866205347,
+    "background_psd": 3.6957962312378646e-19,
+    "peak_to_background": 1924108004387821.0,
+    "frequency_bin_hz": 468.75,
+    "prominent_peak_count": 2,
+    "flags": [
+      "resolution_limited",
+      "multiple_prominent_peaks",
+      "near_known_line_grid"
+    ]
+  },
+  "zero_power_test": "pass",
+  "unique_event_channels": 23564,
+  "samples_per_welch_segment": 4096,
+  "browser_interaction_tested": false
+}
